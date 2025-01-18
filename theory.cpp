@@ -190,6 +190,20 @@ arrays are just pointers
     *score_ptr = 86;            // ok
     score_ptr = &low_score;     // err
 
+**********************************
+*** object oriented programming ***
+**********************************
 
+- declarations
+    class Class_Name{
+        // attributes and methods
+    };
+
+    ClassName instance;
+
+    ClassName *pointer = new Class_Name();
+    delete pointer;
+
+in a class, everything is private by default
 
 */
