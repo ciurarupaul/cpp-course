@@ -145,4 +145,51 @@ while (true) -> infinite loop
         - .clear()
         - .length()
 
+**********************************
+        *** functions ***
+**********************************
+
+double calc_cost (double base_cost, double tax_rate = 0.06); -> provide default value
+
+**********************************
+        *** pointers ***
+**********************************
+
+definition: int *pointer;
+how to initialize: var_type *pointer {nullptr}; -> else it will hold garbage
+!! Always initialize pointers!!! nullptr C++11 !
+& -> address operator -> holds the address of the variable (the location in memory in hexadecimals)
+
+no matter what type they point to, pointers are a simple 4bytes variable that hold an address
+losing a pointer will result in a MEMORY LEAK
+arrays are just pointers
+
+- allocating memory at run time
+    int_ptr = new int;  // allocate an integer on the heap
+    delete int_ptr;     // frees the allocated storage
+    
+    // for arrays
+    array_ptr = new int[size];
+    delete [] array_ptr;
+
+- arrays are pointers
+    array[idx] is the same as pointer[idx]
+    *(pointer + idx) is the same as *(array + idx)
+
+- const pointers
+    int high_score {100};
+    int low_score {65};
+
+    // type 1
+    const int *score_ptr {&high_score};
+    *score_ptr = 86;            // err
+    score_ptr = &low_score;     // ok
+
+    // type 2
+    int *const score_ptr {&high_score};
+    *score_ptr = 86;            // ok
+    score_ptr = &low_score;     // err
+
+
+
 */
