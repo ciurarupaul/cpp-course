@@ -17,6 +17,8 @@ public:
 
     bool deposit(double amount);
     bool withdraw(double amount);
+
+    // constructors
 };
 
 #endif // _ACCOUNT_H_

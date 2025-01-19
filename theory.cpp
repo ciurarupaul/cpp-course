@@ -206,4 +206,90 @@ arrays are just pointers
 
 in a class, everything is private by default
 
+there is a default 'given by the compiler' constructor, as long as no other constructors are declared. as soon as you declare a specific constructor, you need to provide the default one as well
+
+you can overload constructors as much as you like, but they need an UNIQUE signature (param list)
+
+- initialize constructors like this (w/ initialization lists):
+
+Player::Player(std::string name_val, int health_val, int xp_val)
+    : name{name_val}, health{health_val}, xp{xp_val} {
+}
+
+// delegating constructors
+// call the most complex constructor on all the other constructors, so there is no duplicate code ; Player:: for player class scope
+// both their bodies will be executed - keep in mind!
+Player::Player()
+    : Player {"None", 0, 0}{
+}
+
+// ********************
+// best way to declare and initialize constructors
+// ********************
+// 
+// default params for constructors -- only one constructor
+
+// -- in class:
+public:
+    Player(std::string name_val = 'None', int health_val = 0, int xp_val = 0);
+}; -- end class declaration
+
+Player(str::string name_val, int health_val, int xp_val)
+    : name{name_val}, health{health_val}, xp{xp_val}{
+}
+
+// copy constructor
+
+    Player::Player(const Player &source)
+        :   name{source.name},
+            health {source.health},
+            xp {source.xp}{
+    }
+
+- shallow copy - pointing to the same memory area as the pointer that was copied instead of copying the data the og pointer was pointing at in another location and pointing there with the copy pointer
+!issue - if the original memory is freed, the copy pointer will point to invalid data
+    
+- deep copy - copies the data that is being pointed at, not the memory address of the data
+
+// the difference between the two is a *
+
+
+// shallow copy 
+// allocate mamory for an int pointer (data) and initialize it with the value from d
+Shallow::Shallow(int d){
+    data = new int;
+    *data = d;
+}
+
+// now the pointer data of the current object points to the same memory location as source.data
+Shallow::Shallow(const Shallow &source)
+    :data(source.data){
+}
+
+// deep copy
+// same as the shallow one
+Deep::Deep(int d) {
+    data = new int;
+    *data = d;
+}
+
+// use the regular constructor to create a new Deep object with the value stored in source.data
+Deep::Deep(const Deep &source)
+    : Deep {*source.data} {
+}
+
+- this contains the address of the current object
+    - can only be used in the class scope
+
+void Account::set_balance(double balance){
+    this->balance = balance;
+}
+// ----- instead of ----- 
+void Account::set_balance(double bal){
+    balance = bal;
+}
+
+// static class members - available for the whole class, not the instances of the class
+
+// friends of a class - another class that has access to the private data of the friend class
 */
