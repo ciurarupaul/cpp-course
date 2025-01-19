@@ -292,4 +292,10 @@ void Account::set_balance(double bal){
 // static class members - available for the whole class, not the instances of the class
 
 // friends of a class - another class that has access to the private data of the friend class
+
+**********************************
+*** operator overloading ***
+**********************************
+
+- cannot overload :: :? .* . sizeof
 */
