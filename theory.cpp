@@ -300,9 +300,9 @@ void Account::set_balance(double bal){
 - cannot overload :: :? .* . sizeof
 
 **********************************
-        *** inheritance ***
+        *** exceptions ***
 **********************************
 
-
+destructors are designed to not throw exceptions
 
 */
